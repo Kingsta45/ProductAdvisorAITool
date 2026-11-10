@@ -1,0 +1,158 @@
+{
+  "company": "Market Neutral Hedge Fund",
+  "description": "Market-neutral, multi-strategy digital asset manager running pooled funds, separately managed accounts and on-chain vaults for institutional and crypto-native allocators.",
+  "products": {
+    "main_fund": {
+      "name": "Main Fund (direct investment)",
+      "structure": "USD-denominated pooled fund with an independent administrator and auditor",
+      "strategy": "Market-neutral, multi-strategy approach (basis/funding-rate carry, statistical arbitrage, options volatility) targeting stable, risk-adjusted returns",
+      "track_record": "3-year track record, ~19% average annual net return, Sharpe ratio ~4",
+      "denomination": "USD (confirm)",
+      "minimum_investment": "$250,000",
+      "liquidity": "Monthly subscriptions; quarterly redemptions with 45-day notice",
+      "fees": "1.5% management / 20% performance (high-water mark)",
+      "transparency": "Monthly NAV statements and an annual audit",
+      "best_for": [
+        "Investors who want a turnkey, professionally managed allocation in a standard fund structure",
+        "Allocators who think and report in USD",
+        "Traditional/TradFi-style allocators who value institutional documentation and audited statements",
+        "Comfortable with periodic (not daily) liquidity and a pooled vehicle"
+      ],
+      "not_for": [
+        "Investors who want returns to stay BTC-denominated",
+        "Those who need on-chain, real-time verification or daily liquidity",
+        "Investors who require a bespoke mandate or direct asset ownership"
+      ]
+    },
+    "btc_fund": {
+      "name": "BTC-Denominated Fund",
+      "structure": "BTC share class of the main fund, subscribed and settled in BTC",
+      "strategy": "Same underlying market-neutral, multi-strategy approach as the main fund, with performance measured in BTC",
+      "track_record": "Same underlying 3-year track record as the main fund, ~17% average annual return in BTC terms",
+      "denomination": "BTC",
+      "minimum_investment": "$250,000 equivalent in BTC",
+      "liquidity": "Monthly subscriptions; quarterly redemptions with 45-day notice, settled in BTC",
+      "fees": "1.5% management / 20% performance (high-water mark), charged in BTC",
+      "transparency": "Monthly NAV statements in BTC and USD, annual audit",
+      "best_for": [
+        "Crypto-native investors, treasuries and family offices that hold BTC as their base/reserve asset",
+        "Those who want to grow their BTC stack without converting to fiat",
+        "Investors comfortable with the same pooled-fund structure and liquidity as the main fund"
+      ],
+      "not_for": [
+        "Investors who measure performance and report in USD or other fiat",
+        "Those who cannot hold BTC or have no BTC treasury policy",
+        "Investors needing bespoke terms or on-chain verification"
+      ]
+    },
+    "sma": {
+      "name": "Separately Managed Account (SMA)",
+      "structure": "Dedicated account with a bespoke mandate; assets held in the client's own name/custody",
+      "strategy": "Customizable mandate (strategy mix, leverage and risk limits) drawing on the firm's core market-neutral strategies",
+      "track_record": "Built on the firm's core strategies: 3 years, ~19% average annual net return, Sharpe ~2.4",
+      "denomination": "Negotiable",
+      "minimum_investment": "$10,000,000",
+      "liquidity": "Negotiable, written into the managed-account agreement",
+      "fees": "Negotiated per mandate",
+      "transparency": "Full position-level look-through",
+      "best_for": [
+        "Institutional and large private clients wanting bespoke strategy, risk limits or terms",
+        "Sophisticated allocators with their own custodian, prime broker and compliance infrastructure",
+        "Investors who want direct ownership of assets with no commingling",
+        "Larger tickets where operational setup cost is justified"
+      ],
+      "not_for": [
+        "Smaller allocations where setup overhead is not worth it",
+        "Investors wanting a simple, standardized turnkey product",
+        "Those without existing custody/compliance relationships",
+        "Investors who need to deploy quickly (SMA setup takes time)"
+      ]
+    },
+    "vault": {
+      "name": "On-Chain Vault (via Midas and/or Accountable)",
+      "structure": "Tokenized, on-chain vault product. Midas route: tokenized yield-bearing product held in the investor's wallet. Accountable route: vault with live, cryptographically verified reporting of assets, liabilities and capital flows.",
+      "strategy": "Delta-neutral stablecoin yield strategy, a conservative slice of the main fund's carry book",
+      "track_record": "12 months live, ~9% net APY with low drawdown",
+      "denomination": "USDC (stablecoin-denominated)",
+      "minimum_investment": "$25,000 (lower than the pooled funds, suited to exploratory allocations)",
+      "liquidity": "Midas route: redeemable on request with a short processing window. Accountable route: queued, asynchronous redemptions, so withdrawals depend on available idle capital.",
+      "fees": "10% performance fee embedded in vault mechanics, no management fee",
+      "custody": "On-chain / self-custody in the investor's own wallet",
+      "transparency": "Real-time on-chain verification (Accountable adds continuous cryptographic proofs of reserves and flows)",
+      "target_return": "~8-12% APY, lower than the main fund, reflecting the liquidity and transparency trade-off",
+      "best_for": [
+        "Crypto-native or DeFi-fluent investors, DAOs and corporate treasuries wanting a yield sleeve",
+        "Those who value real-time on-chain verification over periodic paper reporting",
+        "Investors who want faster or more flexible liquidity than a fund",
+        "Smaller or exploratory allocations to build the relationship before a larger commitment",
+        "Investors comfortable holding tokenized positions in their own wallet"
+      ],
+      "not_for": [
+        "Traditional allocators who need fund documentation, audit trails and a regulated wrapper",
+        "Those uncomfortable with wallets, self-custody or smart-contract risk",
+        "Investors seeking a managed, diversified multi-strategy program or the highest return target"
+      ]
+    }
+  },
+  "evaluation_criteria": {
+    "denomination_preference": {
+      "signal": "Do they hold, measure and report in USD/fiat, or are they crypto-native and comfortable with BTC as their base currency?",
+      "maps_to": {
+        "usd_reporting": "main_fund",
+        "btc_base_currency": "btc_fund",
+        "stablecoin_or_onchain_yield": "vault"
+      }
+    },
+    "customization_needs": {
+      "signal": "Do they emphasize bespoke or institutional mandates, or are standardized vehicles acceptable?",
+      "maps_to": {
+        "standardized_ok": "main_fund or btc_fund",
+        "bespoke_required": "sma"
+      }
+    },
+    "infrastructure_and_custody": {
+      "signal": "Do they have their own custodians, prime brokers and compliance team, rely on fund structures, or hold assets directly in self-custody wallets?",
+      "maps_to": {
+        "relies_on_fund_structures": "main_fund or btc_fund",
+        "own_institutional_infrastructure": "sma",
+        "self_custody_wallets": "vault"
+      }
+    },
+    "liquidity_needs": {
+      "signal": "Does their portfolio suggest they need flexible liquidity, or do they hold illiquid assets (PE, VC, real estate) showing comfort with lock-ups?",
+      "maps_to": {
+        "needs_flexible_liquidity": "vault",
+        "periodic_liquidity_ok": "main_fund or btc_fund",
+        "negotiable": "sma"
+      }
+    },
+    "transparency_style": {
+      "signal": "Do they accept periodic NAV statements, want full position look-through, or prefer real-time on-chain verification?",
+      "maps_to": {
+        "periodic_reporting": "main_fund or btc_fund",
+        "full_lookthrough": "sma",
+        "realtime_onchain": "vault"
+      }
+    },
+    "ticket_size": {
+      "signal": "What AUM do they manage, and what is a plausible allocation size?",
+      "maps_to": {
+        "small_or_exploratory": "vault",
+        "mid_size": "main_fund or btc_fund",
+        "large_institutional": "sma"
+      }
+    },
+    "crypto_openness": {
+      "signal": "Do they already hold crypto/digital assets, or would this be a first allocation? Are they DeFi-fluent or TradFi-only?",
+      "maps_to": {
+        "tradfi_only_new": "main_fund (institutional wrapper eases entry)",
+        "crypto_curious_cautious": "vault (small exploratory) or main_fund",
+        "crypto_native": "btc_fund or vault",
+        "experienced_with_own_infra": "sma"
+      }
+    }
+  },
+  "scoring_guidance": "Choose the product whose denomination, custody and transparency model matches how the prospect already operates. BTC fund: only score high with evidence they hold BTC as a reserve/base asset. Vault: favor crypto-native or DeFi-fluent prospects, treasuries and exploratory tickets; penalize TradFi-only prospects who need audited documentation. SMA: favor large or institutional prospects with their own custody/compliance or an explicit need for a bespoke mandate. Main fund: default for USD-reporting, TradFi-style allocators new to the space. Where a prospect fits several, say what an entry product and a graduation path could look like (e.g. start with the vault or main fund, graduate to an SMA).",
+  "brand_color": "#1F5FB8",
+  "disclaimer": ""
+}
